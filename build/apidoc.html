@@ -61,12 +61,110 @@
 
     <li class="apidocModuleLi"><a href="#apidoc.module.imagemin-pngquant">module imagemin-pngquant</a><ol>
 
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imagemin-pngquant.imagemin-pngquant">
+            function <span class="apidocSignatureSpan"></span>imagemin-pngquant
+            <span class="apidocSignatureSpan">({}, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imagemin-pngquant.toString">
+            function <span class="apidocSignatureSpan">imagemin-pngquant.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.imagemin-pngquant" id="apidoc.module.imagemin-pngquant">module imagemin-pngquant</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.imagemin-pngquant.imagemin-pngquant" id="apidoc.element.imagemin-pngquant.imagemin-pngquant">
+        function <span class="apidocSignatureSpan"></span>imagemin-pngquant
+        <span class="apidocSignatureSpan">({}, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">opts =&#x3e; buf =&#x3e; {
+	opts = Object.assign({}, opts);
+
+	if (!Buffer.isBuffer(buf)) {
+		return Promise.reject(new TypeError(&#x27;Expected a buffer&#x27;));
+	}
+
+	if (!isPng(buf)) {
+		return Promise.resolve(buf);
+	}
+
+	const args = [
+		&#x27;--output&#x27;, execBuffer.output,
+		execBuffer.input
+	];
+
+	if (opts.floyd &#x26;&#x26; typeof opts.floyd === &#x27;number&#x27;) {
+		args.push(`--floyd=${opts.floyd}`);
+	}
+
+	if (opts.floyd &#x26;&#x26; typeof opts.floyd === &#x27;boolean&#x27;) {
+		args.push(&#x27;--floyd&#x27;);
+	}
+
+	if (opts.nofs) {
+		args.push(&#x27;--nofs&#x27;);
+	}
+
+	if (opts.posterize) {
+		args.push(&#x27;--posterize&#x27;, opts.posterize);
+	}
+
+	if (opts.quality) {
+		args.push(&#x27;--quality&#x27;, opts.quality);
+	}
+
+	if (opts.speed) {
+		args.push(&#x27;--speed&#x27;, opts.speed);
+	}
+
+	if (opts.verbose) {
+		args.push(&#x27;--verbose&#x27;);
+	}
+
+	return execBuffer({
+		input: buf,
+		bin: pngquant,
+		args
+	}).catch(err =&#x3e; {
+		err.message = err.stderr || err.message;
+		throw err;
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imagemin-pngquant.toString" id="apidoc.element.imagemin-pngquant.toString">
+        function <span class="apidocSignatureSpan">imagemin-pngquant.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return toString;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 </div>
 
