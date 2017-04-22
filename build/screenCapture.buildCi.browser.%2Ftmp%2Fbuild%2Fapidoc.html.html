@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/imagemin/imagemin-pngquant#readme"
-
-    >imagemin-pngquant (v5.0.0)</a>
+    <a href="https://github.com/imagemin/imagemin-pngquant#readme">imagemin-pngquant (v5.0.0)</a>
 </h1>
 <h4>pngquant imagemin plugin</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.imagemin-pngquant">module imagemin-pngquant</a><ol>
 
@@ -85,11 +78,11 @@
         </a>
     </h2>
     <ul>
-    <li>description and source-code<pre class="apidocCodePre">opts =&#x3e; buf =&#x3e; {
+    <li>description and source-code<pre class="apidocCodePre">opts =&gt; buf =&gt; {
 	opts = Object.assign({}, opts);
 
 	if (!Buffer.isBuffer(buf)) {
-		return Promise.reject(new TypeError(&#x27;Expected a buffer&#x27;));
+		return Promise.reject(new TypeError('Expected a buffer'));
 	}
 
 	if (!isPng(buf)) {
@@ -97,43 +90,43 @@
 	}
 
 	const args = [
-		&#x27;--output&#x27;, execBuffer.output,
+		'--output', execBuffer.output,
 		execBuffer.input
 	];
 
-	if (opts.floyd &#x26;&#x26; typeof opts.floyd === &#x27;number&#x27;) {
+	if (opts.floyd &amp;&amp; typeof opts.floyd === 'number') {
 		args.push(`--floyd=${opts.floyd}`);
 	}
 
-	if (opts.floyd &#x26;&#x26; typeof opts.floyd === &#x27;boolean&#x27;) {
-		args.push(&#x27;--floyd&#x27;);
+	if (opts.floyd &amp;&amp; typeof opts.floyd === 'boolean') {
+		args.push('--floyd');
 	}
 
 	if (opts.nofs) {
-		args.push(&#x27;--nofs&#x27;);
+		args.push('--nofs');
 	}
 
 	if (opts.posterize) {
-		args.push(&#x27;--posterize&#x27;, opts.posterize);
+		args.push('--posterize', opts.posterize);
 	}
 
 	if (opts.quality) {
-		args.push(&#x27;--quality&#x27;, opts.quality);
+		args.push('--quality', opts.quality);
 	}
 
 	if (opts.speed) {
-		args.push(&#x27;--speed&#x27;, opts.speed);
+		args.push('--speed', opts.speed);
 	}
 
 	if (opts.verbose) {
-		args.push(&#x27;--verbose&#x27;);
+		args.push('--verbose');
 	}
 
 	return execBuffer({
 		input: buf,
 		bin: pngquant,
 		args
-	}).catch(err =&#x3e; {
+	}).catch(err =&gt; {
 		err.message = err.stderr || err.message;
 		throw err;
 	});
@@ -150,3 +143,4 @@
     ]
 </div>
 </div>
+</body></html>
