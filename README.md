@@ -1,9 +1,14 @@
-# api documentation for  [imagemin-pngquant (v5.0.0)](https://github.com/imagemin/imagemin-pngquant#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-imagemin-pngquant.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-imagemin-pngquant) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-imagemin-pngquant.svg)](https://travis-ci.org/npmdoc/node-npmdoc-imagemin-pngquant)
+# npmdoc-imagemin-pngquant
+
+#### api documentation for  [imagemin-pngquant (v5.0.0)](https://github.com/imagemin/imagemin-pngquant#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-imagemin-pngquant.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-imagemin-pngquant) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-imagemin-pngquant.svg)](https://travis-ci.org/npmdoc/node-npmdoc-imagemin-pngquant)
+
 #### pngquant imagemin plugin
 
 [![NPM](https://nodei.co/npm/imagemin-pngquant.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/imagemin-pngquant)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-imagemin-pngquant/build/screenCapture.buildCi.browser.apidoc.html.png)](https://npmdoc.github.io/node-npmdoc-imagemin-pngquant/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-imagemin-pngquant/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-imagemin-pngquant/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-imagemin-pngquant/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-imagemin-pngquant/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-imagemin-pngquant/build/screenCapture.npmPackageListing.svg)
 
@@ -81,94 +86,9 @@
     "version": "5.0.0",
     "xo": {
         "esnext": true
-    }
+    },
+    "bin": {}
 }
-```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module imagemin-pngquant](#apidoc.module.imagemin-pngquant)
-1.  [function <span class="apidocSignatureSpan"></span>imagemin-pngquant ({}, opts)](#apidoc.element.imagemin-pngquant.imagemin-pngquant)
-1.  [function <span class="apidocSignatureSpan">imagemin-pngquant.</span>toString ()](#apidoc.element.imagemin-pngquant.toString)
-
-
-
-# <a name="apidoc.module.imagemin-pngquant"></a>[module imagemin-pngquant](#apidoc.module.imagemin-pngquant)
-
-#### <a name="apidoc.element.imagemin-pngquant.imagemin-pngquant"></a>[function <span class="apidocSignatureSpan"></span>imagemin-pngquant ({}, opts)](#apidoc.element.imagemin-pngquant.imagemin-pngquant)
-- description and source-code
-```javascript
-opts => buf => {
-	opts = Object.assign({}, opts);
-
-	if (!Buffer.isBuffer(buf)) {
-		return Promise.reject(new TypeError('Expected a buffer'));
-	}
-
-	if (!isPng(buf)) {
-		return Promise.resolve(buf);
-	}
-
-	const args = [
-		'--output', execBuffer.output,
-		execBuffer.input
-	];
-
-	if (opts.floyd && typeof opts.floyd === 'number') {
-		args.push('--floyd=${opts.floyd}');
-	}
-
-	if (opts.floyd && typeof opts.floyd === 'boolean') {
-		args.push('--floyd');
-	}
-
-	if (opts.nofs) {
-		args.push('--nofs');
-	}
-
-	if (opts.posterize) {
-		args.push('--posterize', opts.posterize);
-	}
-
-	if (opts.quality) {
-		args.push('--quality', opts.quality);
-	}
-
-	if (opts.speed) {
-		args.push('--speed', opts.speed);
-	}
-
-	if (opts.verbose) {
-		args.push('--verbose');
-	}
-
-	return execBuffer({
-		input: buf,
-		bin: pngquant,
-		args
-	}).catch(err => {
-		err.message = err.stderr || err.message;
-		throw err;
-	});
-}
-```
-- example usage
-```shell
-n/a
-```
-
-#### <a name="apidoc.element.imagemin-pngquant.toString"></a>[function <span class="apidocSignatureSpan">imagemin-pngquant.</span>toString ()](#apidoc.element.imagemin-pngquant.toString)
-- description and source-code
-```javascript
-toString = function () {
-    return toString;
-}
-```
-- example usage
-```shell
-n/a
 ```
 
 
